@@ -40,11 +40,31 @@ for (var i = 0; i < specialString.length; i++) {
 // console.log(specialChars);
 
 function generatePassword() { // called when button is clicked
-  var passLen = prompt("Length of password?"); // get pass length
+  var passLen = prompt("Length of password? (8-128 chars)").trim(); // get pass length
+  if (isNaN(passLen)) { // checks if input is numeric
+    alert("Must enter a numeric value.");
+    generatePassword();
+    return;
+  }
+  else if (passLen < 8 || passLen > 128) { // checks if input is 8-128
+    alert("Password length must be between 8-128 characters.");
+    generatePassword();
+    return;
+  }
+
+
   var includeSpecial = confirm("Use special characters?"); // y/n special chars
   var includeNum = confirm("Use numeric characters?"); // y/n num chars
   var includeUpper = confirm("Use uppercase characters?"); // y/n upper chars
-  var includeLower = confirm("Use lowercase characters?"); // y/n lower chars
+
+  var includeLower = true;
+  if (includeSpecial || includeNum || includeUpper) { // checks if at least one other char type has been selected
+    includeLower = confirm("Use lowercase characters?"); // y/n lower chars
+  }
+  else {
+    alert("Lowercase characters selected.");
+  }
+  
 
   var validChars = []; // array of valid chars
   if (includeSpecial) { 
@@ -70,9 +90,10 @@ function generatePassword() { // called when button is clicked
 
   var password = ""
   for (var i = 0; i < passLen; i++) {
-    var charIndex = Math.floor(Math.random()*validChars.length);
-    password = password + validChars[charIndex];
+    var charIndex = Math.floor(Math.random()*validChars.length); // selects random number between 0 and len of valid char array
+    password = password + validChars[charIndex]; // adds random char to password
   }
+
   // console.log(passLen,includeSpecial,includeNum,includeUpper,includeLower);
   // console.log(validChars);
   console.log(password);
