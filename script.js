@@ -3,7 +3,6 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  console.log("Click!");
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -35,10 +34,10 @@ for (var i = 0; i < specialString.length; i++) {
   specialChars.push(specialString.charAt(i)); // adds each char of special string to array
 }
 
-console.log(lowerChars);
-console.log(upperChars);
-console.log(numChars);
-console.log(specialChars);
+// console.log(lowerChars);
+// console.log(upperChars);
+// console.log(numChars);
+// console.log(specialChars);
 
 function generatePassword() { // called when button is clicked
   var passLen = prompt("Length of password?"); // get pass length
@@ -69,8 +68,12 @@ function generatePassword() { // called when button is clicked
     }
   }
 
-
-
-  console.log(passLen,includeSpecial,includeNum,includeUpper,includeLower);
-  console.log(validChars);
+  var password = ""
+  for (var i = 0; i < passLen; i++) {
+    var charIndex = Math.floor(Math.random()*validChars.length);
+    password = password + validChars[charIndex];
+  }
+  // console.log(passLen,includeSpecial,includeNum,includeUpper,includeLower);
+  // console.log(validChars);
+  console.log(password);
 }
