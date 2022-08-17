@@ -40,7 +40,7 @@ for (var i = 0; i < specialString.length; i++) {
 function generatePassword() { // called when button is clicked
   var passLen = prompt("Length of password? (8-128 chars)"); // get pass length
   if (passLen === null) { // checks if user has cancelled, resulting in null input
-    console.log("Cancelled.");
+    console.log("***User cancelled password generation.");
     return; // returns previous password
   }
   else {
@@ -48,10 +48,12 @@ function generatePassword() { // called when button is clicked
   }
   if (isNaN(passLen)) { // checks if input is numeric
     alert("Must enter a numeric value.");
+    console.log("***User entered non-numeric value.")
     return generatePassword();
   }
   else if (passLen < 8 || passLen > 128) { // checks if input is 8-128
     alert("Password length must be between 8-128 characters.");
+    console.log("***User entered password length outside accepted range.")
     return generatePassword();
   }
 
@@ -91,6 +93,8 @@ function generatePassword() { // called when button is clicked
     }
   }
 
+  console.log("Settings:\n\tPass len: %d\n\tSpecials: %s\n\tNumeric: %s\n\tUppercase: %s\n\tLowercase: %s",passLen,includeSpecial,includeNum,includeUpper,includeLower);
+
   var password = ""
   for (var i = 0; i < passLen; i++) {
     var charIndex = Math.floor(Math.random()*validChars.length); // selects random number between 0 and len of valid char array
@@ -99,6 +103,6 @@ function generatePassword() { // called when button is clicked
 
   // console.log(passLen,includeSpecial,includeNum,includeUpper,includeLower);
   // console.log(validChars);
-  console.log(password);
+  console.log("Generated password\n\n%s",password);
   return password;
 }
