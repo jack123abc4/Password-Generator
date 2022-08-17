@@ -1,10 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// function generatePassword() {
-//   return "12345";
-// }
-
 // Write password to the #password input
 function writePassword() {
   console.log("Click!");
@@ -17,13 +13,6 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-function intToChar(int) {
-  const code = 'A'.charCodeAt(0);
-  return String.fromCharCode(code + int);
-}
-
 
 // generate alphabetic chars
 var lowerChars = [];
@@ -50,3 +39,13 @@ console.log(lowerChars);
 console.log(upperChars);
 console.log(numChars);
 console.log(specialChars);
+
+function generatePassword() { // called when button is clicked
+  var passLen = prompt("Length of password?");
+  var includeSpecial = confirm("Use special characters?");
+  var includeNum = confirm("Use numeric characters?");
+  var includeUpper = confirm("Use uppercase characters?");
+  var includeLower = confirm("Use lowercase characters?");
+
+  console.log(passLen,includeSpecial,includeNum,includeUpper,includeLower);
+}
