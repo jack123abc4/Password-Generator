@@ -6,7 +6,10 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  if (password != null) { // changes text only if return value is not null
+    passwordText.value = password;
+  }
+  
 
 }
 
@@ -34,22 +37,22 @@ for (var i = 0; i < specialString.length; i++) {
   specialChars.push(specialString.charAt(i)); // adds each char of special string to array
 }
 
-// console.log(lowerChars);
-// console.log(upperChars);
-// console.log(numChars);
-// console.log(specialChars);
-
 function generatePassword() { // called when button is clicked
-  var passLen = prompt("Length of password? (8-128 chars)").trim(); // get pass length
+  var passLen = prompt("Length of password? (8-128 chars)"); // get pass length
+  if (passLen === null) { // checks if user has cancelled, resulting in null input
+    console.log("Cancelled.");
+    return; // returns previous password
+  }
+  else {
+    passLen = passLen.trim(); // trims whitespace from input
+  }
   if (isNaN(passLen)) { // checks if input is numeric
     alert("Must enter a numeric value.");
-    generatePassword();
-    return;
+    return generatePassword();
   }
   else if (passLen < 8 || passLen > 128) { // checks if input is 8-128
     alert("Password length must be between 8-128 characters.");
-    generatePassword();
-    return;
+    return generatePassword();
   }
 
 
@@ -97,4 +100,5 @@ function generatePassword() { // called when button is clicked
   // console.log(passLen,includeSpecial,includeNum,includeUpper,includeLower);
   // console.log(validChars);
   console.log(password);
+  return password;
 }
