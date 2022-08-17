@@ -41,11 +41,36 @@ console.log(numChars);
 console.log(specialChars);
 
 function generatePassword() { // called when button is clicked
-  var passLen = prompt("Length of password?");
-  var includeSpecial = confirm("Use special characters?");
-  var includeNum = confirm("Use numeric characters?");
-  var includeUpper = confirm("Use uppercase characters?");
-  var includeLower = confirm("Use lowercase characters?");
+  var passLen = prompt("Length of password?"); // get pass length
+  var includeSpecial = confirm("Use special characters?"); // y/n special chars
+  var includeNum = confirm("Use numeric characters?"); // y/n num chars
+  var includeUpper = confirm("Use uppercase characters?"); // y/n upper chars
+  var includeLower = confirm("Use lowercase characters?"); // y/n lower chars
+
+  var validChars = []; // array of valid chars
+  if (includeSpecial) { 
+    for (var i = 0; i < specialChars.length; i++) {
+      validChars.push(specialChars[i]); // if special selected, adds special chars
+    }
+  }
+  if (includeNum) {
+    for (var i = 0; i < numChars.length; i++) {
+      validChars.push(numChars[i]); // if num selected, adds num chars
+    }
+  }
+  if (includeUpper) {
+    for (var i = 0; i < upperChars.length; i++) {
+      validChars.push(upperChars[i]); // if upper selected, adds upper chars
+    }
+  }
+  if (includeLower) {
+    for (var i = 0; i < lowerChars.length; i++) {
+      validChars.push(lowerChars[i]); // if lower selected, adds lower chars
+    }
+  }
+
+
 
   console.log(passLen,includeSpecial,includeNum,includeUpper,includeLower);
+  console.log(validChars);
 }
