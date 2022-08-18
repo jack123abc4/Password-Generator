@@ -47,10 +47,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-(./Assets/images/screenshot1.png)
-![screenshot1](Assets/images/screenshot1.png?raw=true "Screenshot1")
-<img src="./Assets/images/screenshot1.png"></img>
-<img src="./Assets/images/screenshot2.png"></img>
-<img src="./Assets/images/screenshot3.png"></img>\
-
 ![screenshot1](https://user-images.githubusercontent.com/15790800/185509182-104062e7-e46f-437a-86ad-81e25a2aba73.PNG)
+![screenshot2](https://user-images.githubusercontent.com/15790800/185509273-be4591d1-27cf-4e15-b65d-06dccb2df535.PNG)
+![screenshot3](https://user-images.githubusercontent.com/15790800/185509280-cdba6ada-afe7-4427-b91d-16588975cea8.PNG)
